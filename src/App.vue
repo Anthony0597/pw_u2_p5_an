@@ -1,16 +1,18 @@
 <template>
-  <Calculadora/>
+  <Pregunta/>
 </template>
 
 <script>
 import Contador from "./components/Contador.vue";
-import Calculadora from "./components/Calculadora.vue"
+import Calculadora from "./components/Calculadora.vue";
+import Pregunta from "./components/Pregunta.vue"
 
 export default {
   name: "App",
   components: {
     Contador,
     Calculadora,
+    Pregunta
   },
  methods:{
    calcularValor() {
