@@ -1,13 +1,9 @@
 <template>
-  <label for="">Id:</label>
   <p type="Id:">
     <input v-model="id" type="text" @keypress="presionandoTeclaApe" />
   </p>
-  <label for="">Name:</label>
   <p type="Name:"><input v-model="name" type="text" /></p>
-  <label for="">Weight:</label>
   <p type="Weigth:"><input v-model="weight" type="text" /></p>
-  <label for="">Base experience:</label>
   <p type="Base experience:"><input v-model="experience" type="text" /></p>
 </template>
 
@@ -47,8 +43,14 @@ input {
   border-radius: 8px;
   padding: 5px;
 }
-label{
-    text-align: left;
+label {
+  text-align: left;
 }
-
+p:before {
+  content: attr(type);
+  display: block;
+  margin: 10px 2px;
+  font-size: 16px;
+  color: #5a5a5a;
+}
 </style>

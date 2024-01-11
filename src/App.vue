@@ -1,5 +1,5 @@
 <template>
-  <Pregunta/>
+  <PokemonApi/>
 </template>
 
 <script>
