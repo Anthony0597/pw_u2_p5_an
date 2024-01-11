@@ -1,16 +1,14 @@
 <template>
-  <img
-    src="https://media.es.wired.com/photos/6501e7429fa9000811a95fe8/16:9/w_2560%2Cc_limit/Adobe%2520Firefly.jpeg"
-    alt="No se puede visualizar"
-  />
+  <img v-if="img !== null" :src="img" alt="No se puede visualizar" />
   <div class="dark"></div>
 
   <div class="container">
     <input v-model="pregunta" type="text" />
     <p>Recuerda que debes terminar con el signo de interrogación (?)</p>
-
-    <h2>{{ pregunta }}</h2>
-    <h1>SI, NO.......</h1>
+    <div v-if="preguntaValida===true">
+      <h2>{{ pregunta }}</h2>
+      <h1>{{ respuesta }}</h1>
+    </div>
   </div>
 </template>
 
@@ -18,25 +16,37 @@
 export default {
   data() {
     return {
-      pregunta: "Voy a ser millonario",
+      pregunta: null,
+      respuesta: null,
+      img: null,
+      preguntaValida: false,
     };
   },
   watch: {
     pregunta(value, oldvalue) {
+      this.preguntaValida=false;
       console.log(value);
       console.log(oldvalue);
       if (!value.includes("?")) return;
       //Consumo del API
-      this.consumirAPI()
+      this.consumirAPI();
+      this.preguntaValida=true;
     },
   },
   methods: {
     async consumirAPI() {
-      const {answer,image} = await fetch("https://yesno.wtf/api").then((respuesta) =>
-        respuesta.json()
+      this.respuesta="Pensando."
+      this.respuesta="Pensando.."
+      
+      const { answer, image } = await fetch("https://yesno.wtf/api").then(
+        (respuesta) => respuesta.json()
       );
-      console.log(answer)
-      console.log(image)
+      console.log(answer);
+      console.log(image);
+      this.respuesta="Pensando..."
+      this.respuesta="Pensando...."
+      this.respuesta = answer==='yes'?'SI!':'NO';
+      this.img = image;
     },
   },
 };

@@ -5,14 +5,16 @@
 <script>
 import Contador from "./components/Contador.vue";
 import Calculadora from "./components/Calculadora.vue";
-import Pregunta from "./components/Pregunta.vue"
+import Pregunta from "./components/Pregunta.vue";
+import PokemonApi from "./components/PokemonApi.vue"
 
 export default {
   name: "App",
   components: {
     Contador,
     Calculadora,
-    Pregunta
+    Pregunta,
+    PokemonApi
   },
  methods:{
    calcularValor() {
