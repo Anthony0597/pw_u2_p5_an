@@ -1,26 +1,15 @@
 <template>
-  <PokemonApi/>
+  <PokemonPages/>
 </template>
 
 <script>
-import Contador from "./components/Contador.vue";
-import Calculadora from "./components/Calculadora.vue";
-import Pregunta from "./components/Pregunta.vue";
-import PokemonApi from "./components/PokemonApi.vue"
+import PokemonPages from "./pages/PokemonPage.vue";
 
 export default {
   name: "App",
   components: {
-    Contador,
-    Calculadora,
-    Pregunta,
-    PokemonApi
+    PokemonPages,
   },
- methods:{
-   calcularValor() {
-    return 5 + 5 * 100;
-  }
- },
 };
 </script>
 
