@@ -4,10 +4,12 @@
     <h1>Casino Pokemon</h1>
     <h2>Puntaje: {{ puntaje }}</h2>
     <h2>Intentos: {{ intento }}</h2>
+    <div class="imagen">
       <Imagen :texto="texto1" :urlImg="url1" />
       <Imagen :texto="texto2" :urlImg="url2" />
       <Imagen :texto="texto3" :urlImg="url3" />
       <button @click="jugar">Jugar</button>
+    </div>
   </div>
   <div v-if="mostrarPerdedor">
     <h1>Has utilizado tu 5 intentos</h1>
@@ -137,7 +139,23 @@ export default {
   grid-template-columns: repeat(4, 200px);
 }
 h1 {
+  grid-column: span 4;
+}
+h2 {
   grid-column: span 2;
 }
-
+button {
+  grid-column: 2;
+}
+.imagen {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  justify-content: center;
+  align-content: center;
+  grid-column: span 4;
+}
+button {
+  margin: 30px;
+  border: 3px solid black;
+}
 </style>
